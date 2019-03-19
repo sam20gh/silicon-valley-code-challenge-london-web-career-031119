@@ -45,7 +45,7 @@ class Startup
         fundings.map {|fundings| fundings.venture_capitalist}.uniq
     end
     def big_investors
-        fundings.map if venturecapiltalist.tres_commas_club
+        VentureCapitalist.tres_commas_club & investors
     end
 
 end

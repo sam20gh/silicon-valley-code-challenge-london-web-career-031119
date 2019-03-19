@@ -27,12 +27,14 @@ class VentureCapitalist
         funding_rounds.max_by{|funding_rounds| funding_rounds.investment}
     end
     def invested(domain)
-      total_domain_investments = 0
-        self.portfolio.each { |startup| if startup.domain == domain
-                                            total_domain_investments += startup.total_funds
-                                        end
-                             }
-        total_domain_investments
+        # funding_rounds.select {|i| i.startup.domain == domain}.map(&:investment).sum
+        portfolio.select {|i| i.domain == domain}.map(&:total_funds).sum
+    #   total_domain_investments = 0
+    #     self.portfolio.each { |startup| if startup.domain == domain
+    #                                         total_domain_investments += startup.total_funds
+    #                                     end
+    #                          }
+    #     total_domain_investments
     end
    
 
